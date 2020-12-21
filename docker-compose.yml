@@ -17,6 +17,6 @@ services:
       - "PLEX_CLAIM:${PLEX_CLAIM}"
       - "ADVERTISE_IP:${ADVERTISE_IP}"
     volumes:
-      - /mnt/c/Users/Victor/plex/database:/config
-      - /mnt/c/Users/Victor/plex/transcode:/transcode
-      - /mnt/e/series_filmes:/data
+      - "${CONFIG_PATH}:/config"
+      - "${TRANSCODE_PATH}:/transcode"
+      - "${DATA_PATH}:/data"
