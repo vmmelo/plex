@@ -1,4 +1,10 @@
 version: "3"
+
+networks:
+  plex-network:
+    driver:
+      bridge
+
 services:
   plex:
     image: plexinc/pms-docker
@@ -13,6 +19,8 @@ services:
       - 32413:32413/udp
       - 32414:32414/udp
     restart: always
+    network:
+      - plex-network
     environment:
       - "PLEX_CLAIM:${PLEX_CLAIM}"
       - "ADVERTISE_IP:${ADVERTISE_IP}"
